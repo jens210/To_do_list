@@ -8,19 +8,18 @@
   <link rel="stylesheet" href="css/style.css">
 
 </head>
-<body onload= "doStuff()">
-<h1>Todo List:</h1>
-<form>
-  <input type="text"> </>
-  <button>Add</button>
-  <ul id="todo_list">
-    <li>
-
-    </li>
-  </ul>
-
-  <script src="js/main.js" charset="utf-8"></script>
-
+<body onload= "doStuff();">
+<h1>To do List:</h1>
+<form name ="form" onsubmit="event.preventDefault();">
+  <input type="text" id="todo_input" onFocus="clearThis(this)" name="todo_input"> </>
+  <button onClick="add(this.form)">Add</button>
+  <button onClick="sort()">Sort</button>
+  <button onClick="reverse()">reverse</button>
 </form>
+
+<ul id="todo_list">
+</ul>
+
+<script src="js/main.js" charset="utf-8"></script>
 </body>
 </html>
