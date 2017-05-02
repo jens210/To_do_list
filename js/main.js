@@ -1,9 +1,7 @@
 var todoItems = ["Thing", "Cake", "Bat", "Stuff"];
 
-// checks if clicked
-// lav knapper X remove udfor hvert enkelt todoItems obj
+// Makes btns
 function doStuff(){
-
   for(var i = 0; i < todoItems.length; i++){
     todoItemStuff = "<li class='list_todo_items' onclick='checked(this)'>" +
      todoItems[i] + "<button onclick='remove(" + i +")'class='remove'>x</button></li>";
@@ -17,21 +15,24 @@ function show(){
   doStuff();
 }
 
+// if there is text in the form, it changes the first letter to Uppercase
+// and adds the obj to the array.
 function add(form){
   var inputValue = form.todo_input.value;
+  var firstchar = inputValue[0];
   if(inputValue === ""){
-  // nope
-  alert("Error write something! ");
+  alert("Error write something!");
   }
   else {
+  inputValue = firstchar.toUpperCase() + inputValue.substring(1);
   todoItems.push(inputValue);
   document.getElementById('todo_list').innerHTML = "";
   show();
   }
 }
 
-// tager id fra doStuff().. todoItems[i] + "<button onclick='remove(" + i +")..
-// listener lytter på om knappen er clicked
+// id from doStuff().. todoItems[i] + "<button onclick='remove(" + i +")..
+// event listener listens to the btn if its clicked, it removes the obj.
 function remove(id){
   todoItems.splice(id, 1);
   var buttons = document.getElementsByClassName('remove');
